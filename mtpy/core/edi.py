@@ -147,7 +147,7 @@ class Edi(object):
         if filename is not None:
             self.readfile(self.filename, datatype = datatype)
 
-    def readfile(self, fn, datatype = 'z'):
+    def readfile(self, fn, datatype = 'z', quiet = False):
         """
         Read in an EDI file.
 
@@ -169,9 +169,11 @@ class Edi(object):
         self.__init__()
         
         
-        print ' ...nulled all attributes of current MTedi.Edi instance.'
-        print 'reading in Edi file: {0}'.format(fn)
-        print datatype
+        if not quiet:
+        	print ' ...nulled all attributes of current MTedi.Edi instance.'
+        	print 'reading in Edi file: {0}'.format(fn)
+        	print datatype
+        
         infile = op.abspath(fn)
 
 
